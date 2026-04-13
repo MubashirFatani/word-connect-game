@@ -1,483 +1,260 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Privacy Policy – Word Connect App</title>
-  <meta name="description" content="Privacy Policy for Word Connect App. Learn how we handle your data." />
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700;900&display=swap" rel="stylesheet" />
-  <style>
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Word Connect - Ultimate Brain Training Puzzle Game</title>
+    <meta name="description" content="Connect alphabets, discover words, and sharpen your mind with Word Connect. Challenging puzzles from 6x6 to 8x8 grids. Available now for Android.">
+    
+    <!-- SEO & Open Graph -->
+    <meta property="og:title" content="Word Connect - Brain Puzzle Game">
+    <meta property="og:description" content="Master the art of word finding. Easy, Medium, and Hard modes to challenge your vocabulary.">
+    <meta property="og:image" content="assets/images/gameplay1.png">
+    <meta property="og:type" content="website">
 
-    :root {
-      --purple-deep:   #0d001a;
-      --purple-dark:   #1a0040;
-      --purple-mid:    #3d0099;
-      --purple-light:  #6a1bbb;
-      --accent-yellow: #ffd700;
-      --accent-green:  #00c853;
-      --text-main:     #f0e6ff;
-      --text-muted:    #9e82c0;
-      --card-bg:       rgba(255,255,255,0.05);
-      --card-border:   rgba(255,255,255,0.10);
-    }
-
-    html { scroll-behavior: smooth; }
-
-    body {
-      font-family: 'Outfit', sans-serif;
-      background: var(--purple-deep);
-      color: var(--text-main);
-      min-height: 100vh;
-      line-height: 1.7;
-    }
-
-    /* ── Background blobs ── */
-    body::before, body::after {
-      content: '';
-      position: fixed;
-      border-radius: 50%;
-      filter: blur(120px);
-      pointer-events: none;
-      z-index: 0;
-    }
-    body::before {
-      width: 600px; height: 600px;
-      background: radial-gradient(circle, rgba(106,27,187,.35), transparent 70%);
-      top: -150px; left: -150px;
-    }
-    body::after {
-      width: 500px; height: 500px;
-      background: radial-gradient(circle, rgba(0,200,83,.15), transparent 70%);
-      bottom: -100px; right: -100px;
-    }
-
-    /* ── Hero header ── */
-    header {
-      position: relative;
-      z-index: 1;
-      text-align: center;
-      padding: 70px 24px 50px;
-      background: linear-gradient(180deg, rgba(61,0,153,.6) 0%, transparent 100%);
-      border-bottom: 1px solid var(--card-border);
-    }
-
-    .logo-wrap {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      gap: 14px;
-      margin-bottom: 22px;
-    }
-
-    .logo-icon {
-      width: 64px; height: 64px;
-      background: linear-gradient(135deg, var(--purple-light), var(--purple-mid));
-      border-radius: 18px;
-      display: flex; align-items: center; justify-content: center;
-      font-size: 32px;
-      box-shadow: 0 8px 30px rgba(106,27,187,.5);
-    }
-
-    .logo-text {
-      font-size: 32px;
-      font-weight: 900;
-      letter-spacing: 1px;
-      background: linear-gradient(135deg, #fff 30%, var(--accent-yellow));
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
-    }
-
-    header h1 {
-      font-size: clamp(26px, 5vw, 42px);
-      font-weight: 900;
-      letter-spacing: 1px;
-      margin-bottom: 12px;
-    }
-
-    header p {
-      color: var(--text-muted);
-      font-size: 15px;
-      max-width: 480px;
-      margin: 0 auto;
-    }
-
-    .badge {
-      display: inline-block;
-      margin-top: 18px;
-      padding: 6px 18px;
-      border-radius: 30px;
-      font-size: 12px;
-      font-weight: 700;
-      letter-spacing: 1.5px;
-      text-transform: uppercase;
-      background: rgba(255,215,0,.12);
-      border: 1px solid rgba(255,215,0,.3);
-      color: var(--accent-yellow);
-    }
-
-    /* ── Main content ── */
-    main {
-      position: relative;
-      z-index: 1;
-      max-width: 820px;
-      margin: 0 auto;
-      padding: 50px 24px 80px;
-    }
-
-    /* ── Section cards ── */
-    .card {
-      background: var(--card-bg);
-      border: 1px solid var(--card-border);
-      border-radius: 20px;
-      padding: 32px 36px;
-      margin-bottom: 24px;
-      backdrop-filter: blur(12px);
-      transition: border-color .3s, transform .3s;
-    }
-    .card:hover {
-      border-color: rgba(106,27,187,.5);
-      transform: translateY(-2px);
-    }
-
-    .card-header {
-      display: flex;
-      align-items: center;
-      gap: 14px;
-      margin-bottom: 18px;
-    }
-
-    .card-icon {
-      width: 46px; height: 46px;
-      border-radius: 12px;
-      display: flex; align-items: center; justify-content: center;
-      font-size: 22px;
-      flex-shrink: 0;
-    }
-    .icon-purple { background: rgba(106,27,187,.3); }
-    .icon-green  { background: rgba(0,200,83,.2);   }
-    .icon-yellow { background: rgba(255,215,0,.15); }
-    .icon-blue   { background: rgba(33,150,243,.2); }
-    .icon-red    { background: rgba(229,57,53,.2);  }
-    .icon-teal   { background: rgba(0,188,212,.2);  }
-
-    .card h2 {
-      font-size: 20px;
-      font-weight: 700;
-      color: #fff;
-    }
-
-    .card p {
-      color: var(--text-muted);
-      font-size: 15px;
-      margin-bottom: 12px;
-    }
-    .card p:last-child { margin-bottom: 0; }
-
-    .card ul {
-      list-style: none;
-      padding: 0;
-      display: flex;
-      flex-direction: column;
-      gap: 10px;
-    }
-
-    .card ul li {
-      display: flex;
-      align-items: flex-start;
-      gap: 10px;
-      color: var(--text-muted);
-      font-size: 15px;
-    }
-
-    .card ul li::before {
-      content: '✦';
-      color: var(--accent-yellow);
-      font-size: 11px;
-      margin-top: 4px;
-      flex-shrink: 0;
-    }
-
-    .highlight-box {
-      background: rgba(0,200,83,.08);
-      border: 1px solid rgba(0,200,83,.25);
-      border-radius: 12px;
-      padding: 14px 18px;
-      color: #a8ffcb;
-      font-size: 14px;
-      margin-top: 14px;
-    }
-
-    .highlight-box strong { color: var(--accent-green); }
-
-    a {
-      color: var(--accent-yellow);
-      text-decoration: none;
-      transition: opacity .2s;
-    }
-    a:hover { opacity: .75; }
-
-    /* ── Contact section ── */
-    .contact-card {
-      background: linear-gradient(135deg, rgba(106,27,187,.3), rgba(61,0,153,.4));
-      border: 1px solid rgba(106,27,187,.5);
-      border-radius: 20px;
-      padding: 36px;
-      text-align: center;
-      margin-bottom: 24px;
-    }
-
-    .contact-card h2 {
-      font-size: 22px;
-      font-weight: 800;
-      margin-bottom: 10px;
-    }
-
-    .contact-card p {
-      color: var(--text-muted);
-      font-size: 15px;
-      margin-bottom: 20px;
-    }
-
-    .contact-card a.btn {
-      display: inline-block;
-      padding: 12px 32px;
-      border-radius: 12px;
-      background: linear-gradient(135deg, var(--accent-yellow), #ff8c00);
-      color: #000;
-      font-weight: 800;
-      font-size: 15px;
-      letter-spacing: .5px;
-      box-shadow: 0 4px 20px rgba(255,215,0,.3);
-      transition: opacity .2s, transform .2s;
-    }
-    .contact-card a.btn:hover { opacity: .88; transform: translateY(-2px); }
-
-    /* ── Footer ── */
-    footer {
-      position: relative;
-      z-index: 1;
-      text-align: center;
-      padding: 28px 24px;
-      border-top: 1px solid var(--card-border);
-      color: var(--text-muted);
-      font-size: 13px;
-    }
-
-    footer .footer-logo {
-      font-weight: 900;
-      font-size: 16px;
-      color: #fff;
-      margin-bottom: 6px;
-    }
-
-    /* ── Responsive ── */
-    @media (max-width: 600px) {
-      .card { padding: 24px 20px; }
-      .contact-card { padding: 28px 20px; }
-    }
-  </style>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700;900&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="index.css">
 </head>
 <body>
 
-  <!-- ── Hero ── -->
-  <header>
-    <div class="logo-wrap">
-      <div class="logo-icon">🔤</div>
-      <span class="logo-text">Word Connect</span>
-    </div>
-    <h1>Privacy Policy</h1>
-    <p>We are committed to protecting your privacy. This policy explains how Word Connect App handles your information.</p>
-    <span class="badge">Last Updated: April 2025</span>
-  </header>
+    <!-- ── Navigation ── -->
+    <nav id="navbar">
+        <div class="container nav-container">
+            <div class="logo">
+                <span class="logo-icon">🔤</span>
+                <span class="logo-text">Word Connect</span>
+            </div>
+            <ul class="nav-links">
+                <li><a href="#features">Features</a></li>
+                <li><a href="#modes">Game Modes</a></li>
+                <li><a href="#gameplay">Gameplay</a></li>
+                <li><a href="privacy_policy.html" class="nav-btn-alt">Privacy</a></li>
+                <li><a href="#" class="nav-btn">Download</a></li>
+            </ul>
+            <div class="menu-toggle" id="mobile-menu">
+                <i class="fas fa-bars"></i>
+            </div>
+        </div>
+    </nav>
 
-  <!-- ── Content ── -->
-  <main>
+    <!-- ── Hero Section ── -->
+    <header class="hero">
+        <div class="hero-bg-blobs">
+            <div class="blob blob-1"></div>
+            <div class="blob blob-2"></div>
+        </div>
+        <div class="container hero-container">
+            <div class="hero-content">
+                <span class="badge">Next Generation Puzzle</span>
+                <h1>Connect Letters.<br><span class="highlight">Unleash Your Mind.</span></h1>
+                <p>Experience the most addictive word search game. Swipe through grids, find hidden words, and climb the ranks from Easy to Hard mode. Perfect for quick breaks or long brain-training sessions.</p>
+                
+                <div class="hero-btns">
+                    <a href="#" class="btn-primary">
+                        <i class="fab fa-google-play"></i>
+                        <span>GET IT ON<br><strong>Google Play</strong></span>
+                    </a>
+                    <a href="#gameplay" class="btn-secondary">Watch Action</a>
+                </div>
 
-    <!-- Overview -->
-    <div class="card">
-      <div class="card-header">
-        <div class="card-icon icon-purple">🛡️</div>
-        <h2>Overview</h2>
-      </div>
-      <p>
-        Word Connect App is a word search puzzle game designed for entertainment. 
-        We take your privacy seriously. This Privacy Policy describes what information we collect (if any), 
-        how we use it, and your rights regarding that information.
-      </p>
-      <div class="highlight-box">
-        <strong>Short version:</strong> Word Connect App does not collect, store, or share any personally identifiable information. Your game data stays on your device.
-      </div>
-    </div>
+                <div class="hero-stats">
+                    <div class="stat-item">
+                        <strong>100+</strong>
+                        <span>Levels</span>
+                    </div>
+                    <div class="stat-divider"></div>
+                    <div class="stat-item">
+                        <strong>3+</strong>
+                        <span>Difficulties</span>
+                    </div>
+                    <div class="stat-divider"></div>
+                    <div class="stat-item">
+                        <strong>FREE</strong>
+                        <span>To Play</span>
+                    </div>
+                </div>
+            </div>
 
-    <!-- Data We Collect -->
-    <div class="card">       
-      <div class="card-header">
-        <div class="card-icon icon-blue">📋</div>
-        <h2>Information We Collect</h2>
-      </div>
-      <p>We do <strong>not</strong> collect any personal information. Specifically, Word Connect App does <em>not</em> collect:</p>
-      <ul>
-        <li>Your name, email address, phone number, or any contact details</li>
-        <li>Location data or GPS information</li>
-        <li>Device identifiers or advertising IDs</li>
-        <li>Photos, contacts, or any files from your device</li>
-        <li>Financial or payment information</li>
-        <li>Any information shared with third parties</li>
-      </ul>
-    </div>
+            <div class="hero-image">
+                <div class="phone-frame">
+                    <img src="assets/images/gameplay1.png" alt="Word Connect Gameplay" class="game-screen">
+                </div>
+                <div class="floating-icons">
+                    <div class="icon icon-1"><i class="fas fa-search"></i></div>
+                    <div class="icon icon-2"><i class="fas fa-trophy"></i></div>
+                    <div class="icon icon-3"><i class="fas fa-coins"></i></div>
+                </div>
+            </div>
+        </div>
+    </header>
 
-    <!-- Local Storage -->
-    <div class="card">
-      <div class="card-header">
-        <div class="card-icon icon-green">💾</div>
-        <h2>Local Data Storage</h2>
-      </div>
-      <p>
-        Word Connect App stores the following game-related data <strong>locally on your device only</strong> 
-        using Android's SharedPreferences. This data never leaves your device:
-      </p>
-      <ul>
-        <li>Your coin balance earned within the game</li>
-        <li>Your progress (unlocked levels per difficulty)</li>
-        <li>Remaining hints and skip counts</li>
-        <li>Daily reward claim timestamps</li>
-        <li>First-time play flag (to show the tutorial once)</li>
-      </ul>
-      <p style="margin-top:14px;">
-        This data is used solely to provide a consistent and personalised game experience. 
-        It is stored only on your device and is deleted when you uninstall the app.
-      </p>
-    </div>
+    <!-- ── Features Section ── -->
+    <section id="features" class="features">
+        <div class="container">
+            <div class="section-header">
+                <h2>Why Choose Word Connect?</h2>
+                <p>Designed for word enthusiasts who love a challenge.</p>
+            </div>
 
-    <!-- No Ads / Third Parties -->
-    <div class="card">
-      <div class="card-header">
-        <div class="card-icon icon-yellow">🔒</div>
-        <h2>Third-Party Services</h2>
-      </div>
-      <p>
-        Word Connect App currently does <strong>not</strong> integrate any third-party SDKs, advertising networks, 
-        analytics tools, or social login services. We do not share any data with any external parties.
-      </p>
-      <ul>
-        <li>No advertisements are displayed in the current version of the app</li>
-        <li>No analytics or crash-reporting SDKs are used</li>
-        <li>No social media logins or sharing features</li>
-        <li>No in-app purchases or payment processors</li>
-      </ul>
-    </div>
+            <div class="features-grid">
+                <div class="f-card reveal">
+                    <div class="f-icon purple"><i class="fas fa-brain"></i></div>
+                    <h3>Brain Training</h3>
+                    <p>Improve your vocabulary and cognitive skills while having fun with specially curated word pools.</p>
+                </div>
+                <div class="f-card reveal">
+                    <div class="f-icon orange"><i class="fas fa-users"></i></div>
+                    <h3>Multiplayer Mode</h3>
+                    <p>Challenge your friends in real-time word battles. Speed and accuracy determine the winner.</p>
+                </div>
+                <div class="f-card reveal">
+                    <div class="f-icon yellow"><i class="fas fa-gift"></i></div>
+                    <h3>Daily Rewards</h3>
+                    <p>Log in every day to claim bonus coins. Use them for hints and skips when puzzles get tough.</p>
+                </div>
+                <div class="f-card reveal">
+                    <div class="f-icon blue"><i class="fas fa-mobile-alt"></i></div>
+                    <h3>Smooth UI</h3>
+                    <p>Enjoy fluid animations, satisfying haptic feel, and a premium aesthetic designed for modern devices.</p>
+                </div>
+            </div>
+        </div>
+    </section>
 
-    <!-- Advertising -->
-    <div class="card">
-      <div class="card-header">
-        <div class="card-icon icon-yellow">📢</div>
-        <h2>Advertising (Future Versions)</h2>
-      </div>
-      <p>
-        The current version of Word Connect App does <strong>not</strong> display any advertisements. 
-        However, we reserve the right to introduce advertisements in future versions of the App 
-        to support continued development and maintenance.
-      </p>
-      <p>
-        If advertisements are introduced in a future update, they may be served through 
-        third-party advertising networks (such as Google AdMob). These networks may collect 
-        certain non-personal device information (such as device type, OS version, and ad interaction data) 
-        to serve relevant ads. Any such integration will be disclosed in an updated version of this Privacy Policy.
-      </p>
-      <ul>
-        <li>Ads will only be shown in future versions, <strong>not</strong> in the current release</li>
-        <li>We will update this policy before introducing any ad network</li>
-        <li>We will never sell your personal data to advertisers</li>
-        <li>You will be notified of any major privacy changes through an app update</li>
-      </ul>
-    </div>
+    <!-- ── Grid Modes Section ── -->
+    <section id="modes" class="modes">
+        <div class="container">
+            <div class="modes-wrapper">
+                <div class="modes-info">
+                    <h2>Master Every <span class="text-gradient">Difficulty</span></h2>
+                    <p>From casual players to word masters, we have a level for everyone. Each mode features unique grid sizes and word complexities.</p>
+                    
+                    <div class="mode-item reveal">
+                        <div class="mode-number">01</div>
+                        <div class="mode-text">
+                            <h3>Easy Mode - 6x6 Grid</h3>
+                            <p>Perfect for warming up. Find 3-4 simple words in a compact grid.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="mode-item reveal">
+                        <div class="mode-number">02</div>
+                        <div class="mode-text">
+                            <h3>Medium Mode - 7x7 Grid</h3>
+                            <p>The sweet spot. Increased complexity with horizontal, vertical, and diagonal words.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="mode-item reveal">
+                        <div class="mode-number">03</div>
+                        <div class="mode-text">
+                            <h3>Hard Mode - 8x8 Grid</h3>
+                            <p>For the true masters. Dense grids and long words that will test your focus.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="modes-visual">
+                    <div class="grid-preview reveal">
+                        <div class="grid-cell">W</div><div class="grid-cell">O</div><div class="grid-cell">R</div><div class="grid-cell">D</div>
+                        <div class="grid-cell active">G</div><div class="grid-cell active">A</div><div class="grid-cell active">M</div><div class="grid-cell active">E</div>
+                        <div class="grid-cell">C</div><div class="grid-cell">O</div><div class="grid-cell">N</div><div class="grid-cell">N</div>
+                        <div class="grid-cell">P</div><div class="grid-cell">L</div><div class="grid-cell">A</div><div class="grid-cell">Y</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
-    <!-- Children -->
-    <div class="card">
-      <div class="card-header">
-        <div class="card-icon icon-teal">👶</div>
-        <h2>Children's Privacy</h2>
-      </div>
-      <p>
-        Word Connect App is suitable for all ages, including children under 13. Because we do not collect 
-        any personal information at all, the App is fully compliant with the Children's Online Privacy 
-        Protection Act (COPPA) and similar international regulations. No data is collected from children 
-        or any other users.
-      </p>
-    </div>
+    <!-- ── Gameplay Showcase ── -->
+    <section id="gameplay" class="showcase">
+        <div class="container">
+            <div class="section-header">
+                <h2>Inside the Game</h2>
+                <p>Take a look at the beautiful interface and challenging puzzles.</p>
+            </div>
+            
+            <div class="gallery">
+                <div class="gallery-item">
+                    <img src="assets/images/gameplay1.png" alt="Gameplay 1">
+                </div>
+                <div class="gallery-item">
+                    <img src="assets/images/gameplay2.png" alt="Gameplay 2">
+                </div>
+                <div class="gallery-item">
+                    <img src="assets/images/gameplay3.png" alt="Gameplay 3">
+                </div>
+                <div class="gallery-item">
+                    <img src="assets/images/gameplay4.png" alt="Gameplay 4">
+                </div>
+            </div>
+        </div>
+    </section>
 
-    <!-- Permissions -->
-    <div class="card">
-      <div class="card-header">
-        <div class="card-icon icon-red">📱</div>
-        <h2>App Permissions</h2>
-      </div>
-      <p>Word Connect App requests only the minimum necessary permissions to function:</p>
-      <ul>
-        <li>
-          <div>
-            <strong style="color:#fff;">Storage (Local only)</strong><br>
-            Used to save your game progress and settings locally on your device.
-          </div>
-        </li>
-        <li>
-          <div>
-            <strong style="color:#fff;">Internet (optional)</strong><br>
-            May be used in future versions for optional leaderboards or updates. No data is sent currently.
-          </div>
-        </li>
-      </ul>
-    </div>
+    <!-- ── CTA Section ── -->
+    <section class="cta">
+        <div class="container">
+            <div class="cta-box">
+                <h2>Ready to Start Your Journey?</h2>
+                <p>Download Word Connect for free and start training your brain today!</p>
+                <div class="cta-btns">
+                    <a href="#" class="btn-primary">
+                        <i class="fab fa-google-play"></i>
+                        <span>DOWNLOAD FOR<br><strong>Android</strong></span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
 
-    <!-- Security -->
-    <div class="card">
-      <div class="card-header">
-        <div class="card-icon icon-green">🔐</div>
-        <h2>Data Security</h2>
-      </div>
-      <p>
-        Since we do not transmit any data over the internet, there is no risk of your data being 
-        intercepted or accessed by unauthorised parties through our app. All game data remains 
-        sandboxed within your device's secure storage.
-      </p>
-    </div>
+    <!-- ── Footer ── -->
+    <footer>
+        <div class="container footer-container">
+            <div class="footer-info">
+                <div class="logo">
+                    <span class="logo-icon">🔤</span>
+                    <span class="logo-text">Word Connect</span>
+                </div>
+                <p>Premium word puzzle experience designed for your daily brain exercise.</p>
+            </div>
+            
+            <div class="footer-links">
+                <h4>Quick Links</h4>
+                <ul>
+                    <li><a href="#features">Features</a></li>
+                    <li><a href="#modes">Modes</a></li>
+                    <li><a href="#gameplay">Gameplay</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-links">
+                <h4>Legal</h4>
+                <ul>
+                    <li><a href="privacy_policy.html">Privacy Policy</a></li>
+                    <li><a href="#">Terms of Service</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-links">
+                <h4>Support</h4>
+                <p><i class="fas fa-envelope"></i> muhammadmubbashir4@gmail.com</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <div class="container">
+                <p>&copy; 2025 Word Connect. Developed by Muhammad Mubbashir.</p>
+            </div>
+        </div>
+    </footer>
 
-    <!-- Changes -->
-    <div class="card">
-      <div class="card-header">
-        <div class="card-icon icon-purple">🔄</div>
-        <h2>Changes to This Policy</h2>
-      </div>
-      <p>
-        We may update this Privacy Policy from time to time. If significant changes are made, 
-        we will update the "Last Updated" date at the top of this page. We encourage you to 
-        review this page periodically. Continued use of the App after changes are posted 
-        constitutes your acceptance of the updated policy.
-      </p>
-    </div>
-
-    <!-- Contact -->
-    <div class="contact-card">
-      <h2>📬 Questions or Concerns?</h2>
-      <p>
-        If you have any questions about this Privacy Policy or the Word Connect App, 
-        feel free to reach out to us. We aim to respond within 48 hours.
-      </p>
-      <a href="mailto:muhammadmubbashir4@gmail.com" class="btn">📧 muhammadmubbashir4@gmail.com</a>
-    </div>
-
-  </main>
-
-  <!-- ── Footer ── -->
-  <footer>
-    <div class="footer-logo">🔤 Word Connect App</div>
-    <p>© 2025 Word Connect App. All rights reserved.</p>
-    <p style="margin-top:6px;">This app is free to play and does not collect personal data.</p>
-  </footer>
-
+    <!-- ── Scripts ── -->
+    <script src="script.js"></script>
 </body>
 </html>
