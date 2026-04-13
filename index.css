@@ -95,7 +95,10 @@ p {
 }
 
 .logo-icon {
-  font-size: 32px;
+  width: 32px;
+  height: 32px;
+  object-fit: contain;
+  border-radius: 8px; /* Optional, makes it clean */
 }
 
 .nav-links {
